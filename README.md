@@ -1,5 +1,18 @@
-# How to run sample
+# Reproduction for rabbitmq/rabbitmq-server#11148
+
+https://github.com/rabbitmq/rabbitmq-server/discussions/11148
+
+## Start RabbitMQ
+
 ```
-PN_TRACE_FRM=1 python3 sender-amqp_rabbitmq.py --address amqp://myhost.com:5676/exampleQueue -m 1
+./run-rabbitmq.sh
 ```
-Note. PN_TRACE_FRM=1 to enable AMQP1.0 Frame tracing in QPID proton.
+
+## Run Python QPID sender
+
+```
+cd py
+pipenv install
+pipenv shell
+PN_TRACE_FRM=1 python sender.py --address amqp://localhost:5672/exampleQueue -m 1
+```
