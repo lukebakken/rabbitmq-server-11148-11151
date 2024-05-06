@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+venv/
+
+*.beam
+*.bin
+*.dump
+*.config
+*.xz
+*.zip
+
+rabbitmq_server*/

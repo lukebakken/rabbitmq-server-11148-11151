@@ -1,0 +1,5 @@
+loopback_users = none
+load_definitions = @@PWD@@/rmq/definitions.json
+log.console = true
+log.console.level = debug
+log.file.level = debug

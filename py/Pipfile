@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+python-qpid-proton = "*"
+
+[dev-packages]
+black = "*"
+
+[requires]
+python_version = "3.12"
+
+[scripts]
+sender = 'python sender.py'
+receiver = 'python receiver.py'
