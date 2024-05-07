@@ -128,7 +128,7 @@ class Send(MessagingHandler):
         while event.sender.credit and self.sent < self.total:
             # msg = Message(id=(self.sent + 1), body={'sequence': (self.sent + 1)}, properties={'producer': self.sender_name, "_AMQ_DUPL_ID": str(self.sent + 1)},
             msg = Message(
-                id=(self.sent + 1),
+                id=str(self.sent + 1),
                 body={"sequence": (self.sent + 1)},
                 properties={"producer": self.sender_name},
                 durable=True,
