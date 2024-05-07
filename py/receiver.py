@@ -1,7 +1,7 @@
 import optparse
 from time import sleep
 from proton.handlers import MessagingHandler
-from proton.reactor import Container, Copy
+from proton.reactor import Container, Copy, DurableSubscription
 from proton import symbol
 from proton.reactor import ReceiverOption
 
@@ -49,8 +49,10 @@ class Recv(MessagingHandler):
         print(cur_conn)
         print(cur_conn.url)  # la connection n'est pas ouverte!
 
+        receiver_options = DurableSubscription()
         cur_receiver = event.container.create_receiver(
-            context=cur_conn, source=cur_address, name=self.receiver_name
+            context=cur_conn, source=cur_address, name=self.receiver_name,
+            options=receiver_options
         )  # source for receiver
         # cur_receiver = event.container.create_receiver(context=cur_conn, source=cur_address, name=self.receiver_name, options=CapabilityOptions() )  #source for receiver
 
